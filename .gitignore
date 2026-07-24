@@ -1,6 +1,9 @@
 # Prevent raw database dumps from cluttering Git
 *.sql
 
+# Environment / Secret config
+.env
+
 # Dependencies
 vendor/
 report_gen/vendor/
