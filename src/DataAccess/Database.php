@@ -26,7 +26,8 @@ class Database {
             }
 
             $config = require $configPath;
-            $dsn = "mysql:host={$config['host']};dbname={$config['dbname']};charset={$config['charset']}";
+            $port = isset($config['port']) ? ";port={$config['port']}" : '';
+            $dsn = "mysql:host={$config['host']}{$port};dbname={$config['dbname']};charset={$config['charset']}";
 
             try {
                 self::$instance = new PDO(
