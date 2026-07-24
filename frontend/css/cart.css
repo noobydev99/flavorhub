@@ -1,0 +1,235 @@
+/* ─── FlavorHub Shopping Cart Page Styles ─────────────────────── */
+
+.cart-page-section {
+  padding: 4rem 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.cart-grid-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+@media (min-width: 992px) {
+  .cart-grid-layout {
+    grid-template-columns: 2fr 1fr;
+  }
+}
+
+/* Cart Items Container */
+.cart-items-card {
+  background-color: var(--white);
+  border-radius: var(--radius-card);
+  border: 1px solid var(--light-gray);
+  box-shadow: var(--shadow-soft);
+  padding: 1.5rem;
+}
+
+.cart-title-row {
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--light-gray);
+  margin-bottom: 1.5rem;
+}
+
+.cart-title-row h2 {
+  font-size: 1.35rem;
+  font-weight: 700;
+}
+
+/* Individual Cart Item Row */
+.cart-item-row {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 1.25rem 0;
+  border-bottom: 1px solid var(--light-gray);
+}
+
+.cart-item-row:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.cart-item-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: var(--light-gray);
+  flex-shrink: 0;
+}
+
+.cart-item-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cart-item-details {
+  flex: 1;
+}
+
+.cart-item-name {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+  color: var(--dark-gray);
+}
+
+.cart-item-price-unit {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.cart-item-action-qty {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.cart-item-total-price {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--primary-orange);
+  min-width: 80px;
+  text-align: right;
+}
+
+.btn-remove-cart-item {
+  background: none;
+  border: none;
+  color: #bbb;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: var(--transition);
+  padding: 5px;
+}
+
+.btn-remove-cart-item:hover {
+  color: var(--danger-red);
+}
+
+/* ─── Cart Summary Card (Right Column) ─────────────────────── */
+.cart-summary-card {
+  background-color: var(--white);
+  border-radius: var(--radius-card);
+  border: 1px solid var(--light-gray);
+  box-shadow: var(--shadow-soft);
+  padding: 2rem 1.5rem;
+  position: sticky;
+  top: 100px;
+}
+
+.summary-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--light-gray);
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  color: var(--dark-gray-light);
+  margin-bottom: 0.85rem;
+}
+
+.summary-row.total-row {
+  border-top: 1px dashed var(--slate-300);
+  padding-top: 1.25rem;
+  margin-top: 1.25rem;
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--dark-gray);
+}
+
+.summary-row.total-row .total-val {
+  color: var(--primary-orange);
+}
+
+.btn-checkout-proceed {
+  width: 100%;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+.btn-continue-shopping {
+  width: 100%;
+  justify-content: center;
+  margin-top: 0.75rem;
+  background-color: transparent;
+  border: 2px solid var(--dark-gray);
+  color: var(--dark-gray);
+  border-radius: var(--radius-btn);
+  padding: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: var(--transition);
+}
+
+.btn-continue-shopping:hover {
+  background-color: var(--dark-gray);
+  color: var(--white);
+}
+
+/* ─── Empty Cart Screen ───────────────────────────────────── */
+.empty-cart-container {
+  text-align: center;
+  padding: 5rem 1.5rem;
+  background-color: var(--white);
+  border-radius: var(--radius-card);
+  border: 1px solid var(--light-gray);
+  box-shadow: var(--shadow-soft);
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.empty-cart-container i {
+  font-size: 4rem;
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+  opacity: 0.35;
+}
+
+.empty-cart-container h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.empty-cart-container p {
+  color: var(--text-muted);
+  margin-bottom: 2rem;
+  font-size: 0.95rem;
+}
+
+.empty-cart-container .btn-orange {
+  padding: 0.85rem 2.5rem;
+}
+
+/* Responsive adjustment for row */
+@media (max-width: 576px) {
+  .cart-item-row {
+    flex-wrap: wrap;
+    position: relative;
+    padding-bottom: 2rem;
+  }
+  .cart-item-action-qty {
+    width: 100%;
+    margin-top: 0.5rem;
+    justify-content: space-between;
+  }
+  .btn-remove-cart-item {
+    position: absolute;
+    top: 15px;
+    right: 5px;
+  }
+}

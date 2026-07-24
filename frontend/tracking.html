@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FlavorHub — Order Tracking</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/tracking.css">
+</head>
+<body>
+
+  <div class="global-page-loader"><div class="loader-spinner"></div></div>
+
+  <header class="header-nav">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo"><i class="bi bi-egg-fried"></i> FlavorHub</a>
+      <nav class="nav-links">
+        <a href="index.html">Home</a><a href="menu.html">Menu</a><a href="about.html">About</a><a href="contact.html">Contact</a>
+      </nav>
+      <div class="nav-actions">
+        <a href="login.html" class="btn-nav btn-login nav-login-btn">Login</a>
+        <a href="register.html" class="btn-nav btn-register nav-register-btn">Register</a>
+        <a href="cart.html" class="cart-icon-container"><i class="fas fa-shopping-basket"></i><span class="cart-icon-badge" style="display:none;">0</span></a>
+        <div class="menu-burger"><i class="bi bi-list"></i></div>
+      </div>
+    </div>
+  </header>
+
+  <section class="tracking-page-section">
+
+    <!-- Order Info Header Card -->
+    <div class="tracking-order-info-card">
+      <div>
+        <p class="tracking-order-id">Order <span id="trackingOrderId">---</span></p>
+        <p class="tracking-est-time" id="trackingEstTime">Estimated: 25-35 mins</p>
+        <p style="margin-top: 0.5rem; font-size: 0.9rem; opacity: 0.8;">Status: <strong id="trackingStatusTitle">Loading...</strong></p>
+      </div>
+      <div class="tracking-total-badge" id="trackingTotalBadge">$0.00</div>
+    </div>
+
+    <!-- Progress Bar -->
+    <div class="tracking-progress-wrap">
+      <div class="progress-label-row">
+        <span class="active-step">0%</span>
+        <span>25%</span>
+        <span>50%</span>
+        <span>75%</span>
+        <span>100%</span>
+      </div>
+      <div class="tracking-progress-bar-bg">
+        <div class="tracking-progress-bar-fill" id="trackingProgressFill" style="width: 15%;"></div>
+      </div>
+    </div>
+
+    <!-- Timeline Steps -->
+    <div class="tracking-timeline">
+      <!-- Step 1: Order Received -->
+      <div class="timeline-step step-active">
+        <div class="timeline-icon-dot"><i class="fas fa-receipt"></i></div>
+        <div class="timeline-info-col">
+          <p class="timeline-step-title">Order Received</p>
+          <p class="timeline-step-desc">Your order has been confirmed and sent to our kitchen.</p>
+        </div>
+        <span class="timeline-step-time">In Progress...</span>
+      </div>
+
+      <!-- Step 2: Preparing -->
+      <div class="timeline-step step-pending">
+        <div class="timeline-icon-dot"><i class="fas fa-fire"></i></div>
+        <div class="timeline-info-col">
+          <p class="timeline-step-title">Preparing Your Food</p>
+          <p class="timeline-step-desc">Our chefs are carefully preparing your delicious meal.</p>
+        </div>
+        <span class="timeline-step-time">Pending</span>
+      </div>
+
+      <!-- Step 3: Out for Delivery -->
+      <div class="timeline-step step-pending">
+        <div class="timeline-icon-dot"><i class="fas fa-motorcycle"></i></div>
+        <div class="timeline-info-col">
+          <p class="timeline-step-title">Out for Delivery</p>
+          <p class="timeline-step-desc">Your order is on the way! Our rider is heading to your address.</p>
+        </div>
+        <span class="timeline-step-time">Pending</span>
+      </div>
+
+      <!-- Step 4: Delivered -->
+      <div class="timeline-step step-pending">
+        <div class="timeline-icon-dot"><i class="fas fa-check-circle"></i></div>
+        <div class="timeline-info-col">
+          <p class="timeline-step-title">Delivered!</p>
+          <p class="timeline-step-desc">Your order has been delivered. Enjoy your meal! 🎉</p>
+        </div>
+        <span class="timeline-step-time">Pending</span>
+      </div>
+    </div>
+
+    <!-- Order Items Summary -->
+    <div class="tracking-items-card">
+      <h3><i class="fas fa-utensils" style="color: var(--primary-orange);"></i> Order Items</h3>
+      <div id="trackingItemsList"><!-- Loaded via JS --></div>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="tracking-actions">
+      <a href="menu.html" class="btn-orange"><i class="fas fa-utensils"></i> Order More</a>
+      <a href="dashboard.html?tab=orders" class="btn-dark"><i class="fas fa-history"></i> View All Orders</a>
+    </div>
+
+  </section>
+
+  <footer>
+    <div class="footer-container">
+      <div class="footer-brand"><h3><i class="bi bi-egg-fried"></i> FlavorHub</h3><p>Order fresh, delicious food delivered to your doorstep.</p><div class="footer-socials"><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-instagram"></i></a></div></div>
+      <div class="footer-links"><h4>Quick Links</h4><ul><li><a href="index.html">Home</a></li><li><a href="menu.html">Menu</a></li><li><a href="dashboard.html">Dashboard</a></li></ul></div>
+      <div class="footer-contact"><h4>Contact Us</h4><ul><li><i class="fas fa-phone-alt"></i> +1 (234) 567-8900</li><li><i class="fas fa-envelope"></i> contact@flavorhub.com</li></ul></div>
+    </div>
+    <div class="footer-bottom"><p>© 2026 FlavorHub. All Rights Reserved.</p></div>
+  </footer>
+
+  <div class="back-to-top"><i class="fas fa-chevron-up"></i></div>
+
+  <script src="js/api.js?v=999"></script>
+  <script src="js/global.js?v=999"></script>
+  <script src="js/tracking.js?v=999"></script>
+</body>
+</html>
+

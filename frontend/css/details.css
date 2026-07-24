@@ -1,0 +1,224 @@
+/* ─── FlavorHub Food Details Page Styles ───────────────────────── */
+
+.details-page-section {
+  padding: 4rem 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.details-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+}
+
+@media (min-width: 768px) {
+  .details-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Food Image Gallery */
+.details-image-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.main-food-image-wrap {
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+  background-color: var(--light-gray);
+  height: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.main-food-image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.thumb-image-list {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.thumb-img-item {
+  width: 70px;
+  height: 70px;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: var(--transition);
+  background-color: var(--light-gray);
+}
+
+.thumb-img-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.thumb-img-item.active {
+  border-color: var(--primary-orange);
+}
+
+/* Food Metadata details right side */
+.details-info-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.details-category {
+  color: var(--primary-orange);
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  margin-bottom: 0.5rem;
+}
+
+.details-title h1 {
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: var(--dark-gray);
+  margin-bottom: 0.75rem;
+  line-height: 1.2;
+}
+
+.details-rating-wrap {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.stars-container {
+  color: #FFC107;
+  font-size: 0.95rem;
+}
+
+.reviews-count-text {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.details-price-tag {
+  font-size: 1.85rem;
+  font-weight: 800;
+  color: var(--primary-orange);
+  margin-bottom: 1.5rem;
+}
+
+.details-desc-text {
+  font-size: 0.95rem;
+  color: var(--dark-gray-light);
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+/* Ingredients */
+.ingredients-wrap {
+  margin-bottom: 2rem;
+}
+
+.ingredients-wrap h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.ingredients-pills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.ingredient-pill {
+  background-color: var(--light-gray);
+  color: var(--dark-gray-light);
+  padding: 0.4rem 1rem;
+  border-radius: var(--radius-btn);
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+/* Quantity controls and Action buttons */
+.purchase-controls-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--light-gray);
+  margin-bottom: 2rem;
+}
+
+.qty-counter-widget {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--slate-200);
+  border-radius: var(--radius-btn);
+  background-color: var(--light-gray);
+  overflow: hidden;
+}
+
+.qty-counter-widget button {
+  background: none;
+  border: none;
+  width: 44px;
+  height: 44px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: var(--transition);
+  color: var(--dark-gray);
+}
+
+.qty-counter-widget button:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.qty-counter-widget span {
+  width: 44px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 1rem;
+  user-select: none;
+}
+
+.purchase-controls-row .btn-orange {
+  flex: 1;
+  min-width: 200px;
+  justify-content: center;
+  padding: 0.85rem 2rem;
+}
+
+/* ─── Related Recommendations ────────────────────────────── */
+.related-recommendations-section {
+  border-top: 1px solid var(--light-gray);
+  padding: 5rem 1.5rem 0;
+  margin-top: 3rem;
+}
+
+.related-grid-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 576px) {
+  .related-grid-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 992px) {
+  .related-grid-container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

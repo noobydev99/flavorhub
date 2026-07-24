@@ -1,0 +1,310 @@
+/* ─── FlavorHub About Page Styles ─────────────────────────────── */
+
+/* ─── Hero ─────────────────────────────────────────────────── */
+.about-hero {
+  min-height: 60vh;
+  background: linear-gradient(135deg, #1a0a00 0%, var(--dark-gray) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 5rem 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.about-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 50%, rgba(255, 107, 0, 0.15), transparent 70%);
+}
+
+.about-hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 650px;
+  margin: 0 auto;
+  color: var(--white);
+}
+
+.about-hero-tag {
+  display: inline-block;
+  background: rgba(255, 107, 0, 0.2);
+  border: 1px solid rgba(255, 107, 0, 0.4);
+  color: var(--primary-orange);
+  padding: 0.4rem 1.1rem;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+}
+
+.about-hero h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 1.25rem;
+}
+
+.about-hero h1 span {
+  color: var(--primary-orange);
+}
+
+.about-hero-subtitle {
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.7;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* ─── Our Story Section ───────────────────────────────────── */
+.about-story-section {
+  padding: 6rem 1.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+
+@media (min-width: 900px) {
+  .about-story-section {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.about-story-image-wrap {
+  position: relative;
+}
+
+.about-story-image-wrap img {
+  width: 100%;
+  border-radius: var(--radius-card);
+  object-fit: cover;
+  max-height: 450px;
+}
+
+.story-floating-badge {
+  position: absolute;
+  bottom: -1.5rem;
+  right: -1rem;
+  background: var(--primary-orange);
+  color: var(--white);
+  border-radius: var(--radius-card);
+  padding: 1.25rem 1.5rem;
+  text-align: center;
+  box-shadow: var(--shadow-hover);
+}
+
+.story-badge-num {
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.story-badge-label {
+  font-size: 0.8rem;
+  opacity: 0.85;
+}
+
+.about-story-text .section-badge {
+  margin-bottom: 1rem;
+}
+
+.about-story-text h2 {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--dark-gray);
+  margin-bottom: 1.25rem;
+  line-height: 1.3;
+}
+
+.about-story-text p {
+  font-size: 0.925rem;
+  color: var(--dark-gray-light);
+  line-height: 1.85;
+  margin-bottom: 1rem;
+}
+
+/* ─── Values Section ──────────────────────────────────────── */
+.about-values-section {
+  background: var(--light-gray);
+  padding: 5.5rem 1.5rem;
+  text-align: center;
+}
+
+.about-values-section .section-badge {
+  margin-bottom: 1rem;
+}
+
+.about-values-section h2 {
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 800;
+  margin-bottom: 0.75rem;
+}
+
+.about-values-grid {
+  max-width: 1100px;
+  margin: 3.5rem auto 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 2rem;
+}
+
+.value-card {
+  background: var(--white);
+  border-radius: var(--radius-card);
+  padding: 2.5rem 2rem;
+  box-shadow: var(--shadow-soft);
+  transition: var(--transition);
+}
+
+.value-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-hover);
+}
+
+.value-icon-wrap {
+  width: 64px;
+  height: 64px;
+  background: var(--primary-orange-light);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  color: var(--primary-orange);
+  margin: 0 auto 1.5rem;
+  transition: var(--transition);
+}
+
+.value-card:hover .value-icon-wrap {
+  background: var(--primary-orange);
+  color: var(--white);
+}
+
+.value-card h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.65rem;
+}
+
+.value-card p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+/* ─── Team Section ────────────────────────────────────────── */
+.about-team-section {
+  padding: 5.5rem 1.5rem;
+  text-align: center;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.about-team-section h2 {
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 800;
+  margin-bottom: 0.75rem;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  margin-top: 3.5rem;
+}
+
+.team-card {
+  background: var(--white);
+  border: 1px solid var(--light-gray);
+  border-radius: var(--radius-card);
+  padding: 2rem 1.5rem;
+  box-shadow: var(--shadow-soft);
+  transition: var(--transition);
+}
+
+.team-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-hover);
+  border-color: rgba(255, 107, 0, 0.2);
+}
+
+.team-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin: 0 auto 1.25rem;
+  object-fit: cover;
+  border: 3px solid var(--primary-orange-light);
+}
+
+.team-avatar-placeholder {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin: 0 auto 1.25rem;
+  background: linear-gradient(135deg, var(--primary-orange), #ff8c3a);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--white);
+}
+
+.team-member-name {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+}
+
+.team-member-role {
+  font-size: 0.8rem;
+  color: var(--primary-orange);
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.team-member-bio {
+  font-size: 0.825rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+}
+
+/* ─── Stats Banner ─────────────────────────────────────────── */
+.about-stats-banner {
+  background: linear-gradient(135deg, var(--primary-orange), #e55c00);
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.stat-item {
+  color: var(--white);
+}
+
+.stat-num {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  line-height: 1;
+  margin-bottom: 0.4rem;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  opacity: 0.85;
+}

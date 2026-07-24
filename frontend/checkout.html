@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FlavorHub — Order Checkout</title>
+
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/checkout.css">
+</head>
+
+<body>
+
+  <!-- Page Loader Overlay -->
+  <div class="global-page-loader">
+    <div class="loader-spinner"></div>
+  </div>
+
+  <!-- Sticky Navigation Header -->
+  <header class="header-nav">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <i class="bi bi-egg-fried"></i> FlavorHub
+      </a>
+
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="menu.html">Menu</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="login.html" class="btn-nav btn-login nav-login-btn">Login</a>
+        <a href="register.html" class="btn-nav btn-register nav-register-btn">Register</a>
+        <a href="cart.html" class="cart-icon-container" title="View Shopping Cart">
+          <i class="fas fa-shopping-basket"></i>
+          <span class="cart-icon-badge" style="display: none;">0</span>
+        </a>
+
+        <div class="menu-burger">
+          <i class="bi bi-list"></i>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ─── Checkout Section ─── -->
+  <section class="checkout-page-section">
+    <div class="checkout-grid">
+
+      <!-- Left Column: Delivery Form -->
+      <div class="checkout-form-card">
+        <h2>Delivery & Payment Information</h2>
+
+        <div class="checkout-form-wrapper" id="checkoutFormOuter">
+
+          <!-- Section 1: Customer Details -->
+          <div class="checkout-form-section">
+            <h3><i class="fas fa-user"></i> 1. Contact Details</h3>
+
+            <div class="form-group-custom">
+              <label class="form-label-custom" for="checkoutName">Full Name</label>
+              <input type="text" class="form-input-custom" id="checkoutName" placeholder="Enter your full name"
+                required>
+            </div>
+
+            <div class="form-group-custom">
+              <label class="form-label-custom" for="checkoutPhone">Phone Number</label>
+              <input type="tel" class="form-input-custom" id="checkoutPhone"
+                placeholder="Enter your phone number (e.g. +1234567890)" required>
+            </div>
+          </div>
+
+          <!-- Section 2: Shipping details -->
+          <div class="checkout-form-section">
+            <h3><i class="fas fa-map-marker-alt"></i> 2. Delivery Address</h3>
+
+            <div class="form-group-custom">
+              <label class="form-label-custom" for="checkoutAddress">Delivery Address</label>
+              <textarea class="form-input-custom" id="checkoutAddress" rows="3"
+                placeholder="Enter your complete delivery address" required style="resize: none;"></textarea>
+            </div>
+
+            <div class="form-group-custom">
+              <label class="form-label-custom" for="checkoutInstructions">Delivery Instructions (Optional)</label>
+              <input type="text" class="form-input-custom" id="checkoutInstructions"
+                placeholder="e.g. ring bell, leave at front door, call on arrival">
+            </div>
+          </div>
+
+          <!-- Section 3: Payment details -->
+          <div class="checkout-form-section">
+            <h3><i class="fas fa-credit-card"></i> 3. Payment Method</h3>
+
+            <div class="payment-selector-grid">
+              <!-- Cash on Delivery -->
+              <div class="payment-method-box selected">
+                <i class="fas fa-money-bill-wave"></i>
+                <span>Cash on Delivery</span>
+                <input type="radio" name="paymentMethod" value="Cash on Delivery" checked>
+              </div>
+
+              <!-- Credit / Debit Card -->
+              <div class="payment-method-box">
+                <i class="fas fa-credit-card"></i>
+                <span>Credit/Debit Card</span>
+                <input type="radio" name="paymentMethod" value="Credit/Debit Card">
+              </div>
+
+              <!-- Online Banking -->
+              <div class="payment-method-box">
+                <i class="fas fa-university"></i>
+                <span>Online Banking</span>
+                <input type="radio" name="paymentMethod" value="Online Banking">
+              </div>
+            </div>
+
+            <div class="payment-details-container mt-4"
+              style="margin-top: 1.5rem; background: #fffcf8; padding: 1.5rem; border-radius: var(--radius-card); border: 2px dashed rgba(246, 139, 30, 0.4);">
+
+              <!-- Credit / Debit Card Details -->
+              <form id="cardDetailsSection" class="payment-details-section" style="display: none;" action="#"
+                onsubmit="event.preventDefault();">
+                <style>
+                  .card-label-strict {
+                    display: block;
+                    font-weight: 700;
+                    margin-bottom: 0.5rem;
+                    color: #111;
+                    font-size: 0.85rem;
+                    letter-spacing: 0.5px;
+                  }
+
+                  .card-input-strict {
+                    width: 100%;
+                    padding: 0.75rem 1rem;
+                    border: 1px solid #e1e1e1;
+                    border-radius: 8px;
+                    font-size: 1rem;
+                    color: #555;
+                    transition: border-color 0.2s;
+                  }
+
+                  .card-input-strict:focus {
+                    outline: none;
+                    border-color: var(--primary-orange);
+                  }
+
+                  .card-input-strict::placeholder {
+                    color: #9facbd;
+                  }
+                </style>
+
+                <div class="form-group-custom" style="margin-bottom: 1.5rem;">
+                  <label class="card-label-strict" for="cardName">CARDHOLDER NAME</label>
+                  <input type="text" class="card-input-strict" id="cardName" placeholder="JOHN DOE">
+                </div>
+
+                <div class="form-group-custom" style="margin-bottom: 1.5rem;">
+                  <label class="card-label-strict" for="cardNumber">CARD NUMBER</label>
+                  <div style="position: relative;">
+                    <input type="text" class="card-input-strict" id="cardNumber" placeholder="4111  2222  3333  4444"
+                      maxlength="19" inputmode="numeric" style="padding-left: 2.8rem;">
+                    <i class="far fa-credit-card"
+                      style="position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); color: #777; font-size: 1.2rem;"></i>
+                  </div>
+                </div>
+
+                <div class="row"
+                  style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem;">
+                  <div class="form-group-custom">
+                    <label class="card-label-strict" for="cardExpiryMonth">EXPIRY MONTH</label>
+                    <input type="text" class="card-input-strict" id="cardExpiryMonth" placeholder="MM" maxlength="2"
+                      inputmode="numeric" style="text-align: center;">
+                  </div>
+                  <div class="form-group-custom">
+                    <label class="card-label-strict" for="cardExpiryYear">EXPIRY YEAR</label>
+                    <input type="text" class="card-input-strict" id="cardExpiryYear" placeholder="YY" maxlength="2"
+                      inputmode="numeric" style="text-align: center;">
+                  </div>
+                  <div class="form-group-custom">
+                    <label class="card-label-strict" for="cardCvc">CVC / CVV</label>
+                    <input type="password" class="card-input-strict" id="cardCvc" placeholder="•••" maxlength="3"
+                      inputmode="numeric" style="text-align: center; font-size: 1.2rem; letter-spacing: 2px;">
+                  </div>
+                </div>
+
+                <button type="submit" class="btn-orange btn-place-order mt-3" style="width: 100%;"><i
+                    class="fas fa-shopping-bag"></i> Place Order via Card</button>
+              </form>
+
+              <!-- Online Banking Details -->
+              <form id="bankingDetailsSection" class="payment-details-section" style="display: none;" action="#"
+                onsubmit="event.preventDefault();">
+                <h4
+                  style="margin-bottom: 1rem; font-size: 1.1rem; color: var(--dark-gray); border-bottom: 1px solid #e1e1e1; padding-bottom: 0.5rem;">
+                  <i class="fas fa-university text-brand" style="margin-right: 8px;"></i>Online Banking Portal <span
+                    style="color:red; font-size: 0.8rem;">(DEMO)</span>
+                </h4>
+
+                <div class="form-group-custom">
+                  <label class="form-label-custom" for="bankSelect">Select Your Bank</label>
+                  <select class="form-input-custom" id="bankSelect">
+                    <option value="" disabled selected>— Choose your bank —</option>
+                    <option value="boc">Bank of Ceylon (BOC)</option>
+                    <option value="combank">Commercial Bank</option>
+                    <option value="hnb">Hatton National Bank (HNB)</option>
+                    <option value="sampath">Sampath Bank</option>
+                    <option value="peoples">People's Bank</option>
+                    <option value="ndb">NDB Bank</option>
+                  </select>
+                </div>
+
+                <div class="form-group-custom">
+                  <label class="form-label-custom" for="bankAccount">Bank Account Number (Demo)</label>
+                  <input type="text" class="form-input-custom" id="bankAccount"
+                    placeholder="e.g. 100 000 000 000 (Demo)">
+                </div>
+
+                <button type="submit" class="btn-orange btn-place-order mt-3" style="width: 100%;"><i
+                    class="fas fa-shopping-bag"></i> Place Order via Bank</button>
+              </form>
+
+              <!-- Cash on Delivery Details -->
+              <form id="codDetailsSection" class="payment-details-section" style="display: block;" action="#"
+                onsubmit="event.preventDefault();">
+                <h4
+                  style="margin-bottom: 1rem; font-size: 1.1rem; color: var(--dark-gray); border-bottom: 1px solid #e1e1e1; padding-bottom: 0.5rem;">
+                  <i class="fas fa-hand-holding-usd text-brand" style="margin-right: 8px;"></i>Cash on Delivery Form
+                </h4>
+
+                <div class="form-group-custom">
+                  <label class="form-label-custom" for="codName">Receiver Name</label>
+                  <input type="text" class="form-input-custom" id="codName"
+                    placeholder="Name of person receiving the order">
+                </div>
+
+                <div class="form-group-custom">
+                  <label class="form-label-custom" for="codPhone">Contact Number</label>
+                  <input type="tel" class="form-input-custom" id="codPhone" placeholder="+94 7X XXX XXXX">
+                </div>
+
+                <div class="form-group-custom">
+                  <label class="form-label-custom" for="codAddress">Exact Delivery Address</label>
+                  <textarea class="form-input-custom" id="codAddress" rows="3" placeholder="e.g. 123 Main Street, City"
+                    style="resize: none;"></textarea>
+                </div>
+
+                <div class="alert-info"
+                  style="background: rgba(246, 139, 30, 0.1); padding: 1rem; border-radius: 8px; color: var(--primary-orange); display: flex; align-items: flex-start; gap: 0.75rem;">
+                  <i class="fas fa-info-circle" style="margin-top: 3px;"></i>
+                  <span style="font-size: 0.9rem;">Please prepare the exact bill amount to hand over to our delivery
+                    partner.</span>
+                </div>
+
+                <button type="submit" class="btn-orange btn-place-order mt-3" style="width: 100%;"><i
+                    class="fas fa-shopping-bag"></i> Place Order (Cash on Delivery)</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Order Summary -->
+      <div class="checkout-summary-card">
+        <h3>Order Items</h3>
+
+        <div class="checkout-summary-list" id="checkoutItemsList">
+          <!-- Loaded dynamically via checkout.js -->
+        </div>
+
+        <div class="checkout-summary-row">
+          <span>Subtotal</span>
+          <span id="checkoutSubtotalVal">LKR 0.00</span>
+        </div>
+
+        <div class="checkout-summary-row">
+          <span>Delivery Fee</span>
+          <span id="checkoutDeliveryVal">LKR 300.00</span>
+        </div>
+
+        <div class="checkout-summary-row total-row">
+          <span>Total Bill</span>
+          <span class="total-val" id="checkoutTotalVal">LKR 0.00</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ─── Footer Section ─── -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-brand">
+        <h3><i class="bi bi-egg-fried"></i> FlavorHub</h3>
+        <p>Order fresh, delicious culinary recipes directly to your doorstep. Satisfying your food cravings with ease.
+        </p>
+        <div class="footer-socials">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="menu.html">Our Menu</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links">
+        <h4>Legal Links</h4>
+        <ul>
+          <li><a href="#">Terms of Use</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Refund Policy</a></li>
+          <li><a href="#">Delivery Info</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-contact">
+        <h4>Contact Us</h4>
+        <ul>
+          <li><i class="fas fa-map-marker-alt"></i>123 Kandy Road,nawalapitiya,sri lanka</li>
+          <li><i class="fas fa-phone-alt"></i> 077 1234567</li>
+          <li><i class="fas fa-envelope"></i> Floverhub@gmail.com</li>
+          <li><i class="fas fa-clock"></i> 10:00 AM - 10:00 PM</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 FlavorHub Admin Dashboard. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <div class="back-to-top">
+    <i class="fas fa-chevron-up"></i>
+  </div>
+
+  <!-- JavaScript scripts -->
+  <script src="js/api.js?v=999"></script>
+  <script src="js/global.js?v=999"></script>
+  <script src="js/checkout.js?v=999"></script>
+</body>
+
+</html>

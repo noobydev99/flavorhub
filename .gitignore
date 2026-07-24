@@ -1,0 +1,14 @@
+# Prevent raw database dumps from cluttering Git
+*.sql
+
+# Dependencies
+vendor/
+report_gen/vendor/
+
+# OS system files
+.DS_Store
+Thumbs.db
+
+# Uploaded media
+/uploads/*
+!/uploads/.gitkeep

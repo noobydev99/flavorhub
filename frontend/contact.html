@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us — FlavorHub</title>
+  <meta name="description"
+    content="Get in touch with FlavorHub. We'd love to hear from you — questions, feedback, or partnership inquiries.">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/contact.css">
+</head>
+
+<body>
+
+  <div class="global-page-loader">
+    <div class="loader-spinner"></div>
+  </div>
+
+  <!-- ─── HEADER ─── -->
+  <header class="header-nav">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo"><i class="bi bi-egg-fried"></i> FlavorHub</a>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="menu.html">Menu</a>
+        <a href="about.html">About</a>
+        <a href="contact.html" class="active">Contact</a>
+      </nav>
+      <div class="nav-actions">
+        <a href="login.html" class="btn-nav btn-login nav-login-btn">Login</a>
+        <a href="register.html" class="btn-nav btn-register nav-register-btn">Register</a>
+        <a href="cart.html" class="cart-icon-container">
+          <i class="fas fa-shopping-basket"></i>
+          <span class="cart-icon-badge" style="display:none;">0</span>
+        </a>
+        <div class="menu-burger"><i class="bi bi-list"></i></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ─── CONTACT MAIN CONTENT ─── -->
+  <main class="contact-page-wrap">
+    <div class="contact-page-header">
+      <span class="section-badge">Get in Touch</span>
+      <h1>Contact FlavorHub</h1>
+      <p>Have a question, feedback, or want to partner with us? We're here and happy to help!</p>
+    </div>
+
+    <div class="contact-grid">
+
+      <!-- ─── Info Sidebar ─── -->
+      <div class="contact-info-sidebar">
+        <h3 class="contact-sidebar-title">Let's Talk</h3>
+        <p class="contact-sidebar-subtitle">Fill out the form and we'll get back to you within 24 hours. Or reach us
+          directly through our channels below.</p>
+
+        <div class="contact-info-item">
+          <div class="contact-info-icon"><i class="fas fa-map-marker-alt"></i></div>
+          <div class="contact-info-text">
+            <strong>Our Location</strong>
+            <span>123 Kandy Road,nawalapitiya,sri lanka<br>Tasty City, TC 1234</span>
+          </div>
+        </div>
+
+        <div class="contact-info-item">
+          <div class="contact-info-icon"><i class="fas fa-phone-alt"></i></div>
+          <div class="contact-info-text">
+            <strong>Phone Number</strong>
+            <span>077 1234567<br>Mon–Fri, 9 AM – 9 PM</span>
+          </div>
+        </div>
+
+        <div class="contact-info-item">
+          <div class="contact-info-icon"><i class="fas fa-envelope"></i></div>
+          <div class="contact-info-text">
+            <strong>Email Address</strong>
+            <span>Floverhub@gmail.com<br>We reply within 24 hours</span>
+          </div>
+        </div>
+
+        <div class="contact-info-item">
+          <div class="contact-info-icon"><i class="fas fa-clock"></i></div>
+          <div class="contact-info-text">
+            <strong>Working Hours</strong>
+            <span>Mon – Sun: 9:00 AM – 11:00 PM<br>Delivery available every day</span>
+          </div>
+        </div>
+
+        <div class="contact-socials-row">
+          <a href="#" class="contact-social-btn"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="contact-social-btn"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="contact-social-btn"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="contact-social-btn"><i class="fab fa-tiktok"></i></a>
+        </div>
+      </div>
+
+      <!-- ─── Contact Form ─── -->
+      <div class="contact-form-card">
+        <h2>Send us a Message</h2>
+        <p>We'd love to hear your thoughts, questions, or feedback!</p>
+
+        <form id="contactForm" novalidate>
+          <div class="contact-form-row">
+            <div class="form-group-custom">
+              <label class="form-label-custom" for="contactName">Your Name</label>
+              <input type="text" id="contactName" class="form-input-custom" placeholder="name">
+            </div>
+            <div class="form-group-custom">
+              <label class="form-label-custom" for="contactEmail">Email Address</label>
+              <input type="email" id="contactEmail" class="form-input-custom" placeholder="you@example.com">
+            </div>
+          </div>
+
+          <div class="form-group-custom" style="margin-top: 1.25rem;">
+            <label class="form-label-custom" for="contactSubject">Subject</label>
+            <select id="contactSubject" class="form-input-custom" style="cursor: pointer;">
+              <option value="">Select a subject...</option>
+              <option value="order">Order Issue</option>
+              <option value="feedback">General Feedback</option>
+              <option value="delivery">Delivery Problem</option>
+              <option value="partner">Restaurant Partnership</option>
+              <option value="billing">Billing / Payment</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <div class="form-group-custom" style="margin-top: 1.25rem;">
+            <label class="form-label-custom" for="contactMessage">Your Message</label>
+            <textarea id="contactMessage" class="form-input-custom contact-message-input"
+              placeholder="Write your message here..."></textarea>
+          </div>
+
+          <div class="contact-submit-row">
+            <button type="submit" class="btn-orange btn-contact-submit"><i class="fas fa-paper-plane"></i> Send
+              Message</button>
+            <div class="contact-success-msg" id="contactSuccessMsg">
+              <i class="fas fa-check-circle"></i> Message sent successfully!
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <!-- ─── FAQ Section ─── -->
+  <section class="contact-faq-section">
+    <h2>Frequently Asked Questions</h2>
+
+    <div class="faq-item open">
+      <button class="faq-question">How long does delivery take? <i class="fas fa-plus"></i></button>
+      <div class="faq-answer">Our average delivery time is 20–35 minutes depending on your location and order volume.
+        You can track your order in real-time from the dashboard.</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">Can I modify my order after placing it? <i class="fas fa-plus"></i></button>
+      <div class="faq-answer">Orders can be modified within 2 minutes of placement. After that, our kitchen begins
+        preparation. Please contact us immediately if you need changes.</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">What payment methods do you accept? <i class="fas fa-plus"></i></button>
+      <div class="faq-answer">We accept all major credit/debit cards, PayPal, Apple Pay, Google Pay, and cash on
+        delivery in select areas.</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">Is there a minimum order amount? <i class="fas fa-plus"></i></button>
+      <div class="faq-answer">Yes, the minimum order amount is $10. For orders above $30, delivery is completely free!
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">How do I partner with FlavorHub? <i class="fas fa-plus"></i></button>
+      <div class="faq-answer">We're always looking to grow our restaurant network! Contact us using the form above,
+        select "Restaurant Partnership" as your subject, and our team will reach out within 2 business days.</div>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ─── -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-brand">
+        <h3><i class="bi bi-egg-fried"></i> FlavorHub</h3>
+        <p>Order fresh, delicious food delivered to your doorstep.</p>
+        <div class="footer-socials">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Account</h4>
+        <ul>
+          <li><a href="dashboard.html">My Dashboard</a></li>
+          <li><a href="login.html">Sign In</a></li>
+          <li><a href="register.html">Create Account</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h4>Contact Us</h4>
+        <ul>
+          <li><i class="fas fa-map-marker-alt"></i>123 Kandy Road,nawalapitiya,sri lanka</li>
+          <li><i class="fas fa-phone-alt"></i> 077 1234567</li>
+          <li><i class="fas fa-envelope"></i> Floverhub@gmail.com</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 FlavorHub. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <div class="back-to-top"><i class="fas fa-chevron-up"></i></div>
+
+  <script src="js/api.js?v=999"></script>
+  <script src="js/global.js?v=999"></script>
+  <script src="js/contact.js?v=999"></script>
+</body>
+
+</html>

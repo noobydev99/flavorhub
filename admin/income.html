@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FlavorHub — Income Management</title>
+
+  <!-- CDNs: Bootstrap 5, Bootstrap Icons, Font Awesome 6, Google Fonts Outfit -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <!-- Custom Styling -->
+  <link rel="stylesheet" href="income.css">
+</head>
+
+<body>
+
+  <!-- Loading Overlay -->
+  <div class="loading-overlay" id="loadingOverlay">
+    <div class="spinner-box">
+      <div class="spinner-custom"></div>
+      <span class="fw-semibold text-slate-700">Syncing database...</span>
+    </div>
+  </div>
+
+  <div class="app-wrapper">
+
+    <!-- ─── Sidebar Navigation ─── -->
+    <nav id="sidebar">
+      <div>
+        <div class="sidebar-header">
+          <a href="dashboard.php" class="sidebar-brand">
+            <i class="bi bi-egg-fried"></i> FlavorHub
+          </a>
+        </div>
+
+        <div class="sidebar-section-label">Management</div>
+
+        <ul class="sidebar-nav">
+          <li>
+            <a href="dashboard.php">
+              <i class="bi bi-speedometer2"></i> Dashboard
+            </a>
+          </li>
+          <li class="active">
+            <a href="income.html">
+              <i class="bi bi-currency-dollar"></i> Income
+            </a>
+          </li>
+          <li>
+            <a href="recipes.php">
+              <i class="bi bi-journal-bookmark-fill"></i> Recipes
+            </a>
+          </li>
+          <li>
+            <a href="categories.php">
+              <i class="bi bi-tags-fill"></i> Categories
+            </a>
+          </li>
+          <li>
+            <a href="users.php">
+              <i class="bi bi-people-fill"></i> User Accounts
+            </a>
+          </li>
+          <li>
+            <a href="comments.php">
+              <i class="bi bi-chat-right-text-fill"></i> Comments
+            </a>
+          </li>
+          <li>
+            <a href="profile.php">
+              <i class="bi bi-person-circle"></i> Profile Info
+            </a>
+          </li>
+          <li>
+            <a href="settings.php">
+              <i class="bi bi-sliders"></i> Site Settings
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="sidebar-footer">
+        <a href="logout.php" onclick="return confirm('Are you sure you want to sign out?');">
+          <i class="bi bi-box-arrow-right"></i> Logout
+        </a>
+      </div>
+    </nav>
+
+    <!-- ─── Content Wrapper ─── -->
+    <div id="content">
+
+      <!-- Top Navbar -->
+
+      <!-- Main Content Container -->
+      <div class="main-container">
+
+        <!-- Page Header Area -->
+        <div
+          class="d-flex flex-column gap-3 md-flex-row md-items-center justify-content-between border-b border-slate-200 pb-3 mb-4">
+          <div>
+            <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '>';">
+              <ol class="breadcrumb mb-1 small text-uppercase fw-bold" style="letter-spacing: 0.5px;">
+                <li class="breadcrumb-item"><a href="dashboard.php"
+                    class="text-decoration-none text-slate-500">Dashboard</a></li>
+                <li class="breadcrumb-item active text-brand" aria-current="page">Income</li>
+              </ol>
+            </nav>
+            <h1 class="fw-extrabold text-slate-900 fs-3 mb-1">Income Management</h1>
+            <p class="text-slate-600 text-sm mb-0">Monitor restaurant income and completed orders</p>
+          </div>
+
+          <!-- Export Section Buttons -->
+          <div class="d-flex flex-wrap gap-2">
+            <button class="btn btn-sm btn-light-custom px-3 py-2" id="btnPrint">
+              <i class="fas fa-print me-1.5 text-slate-500"></i> Print Report
+            </button>
+            <button class="btn btn-sm btn-light-custom px-3 py-2" id="btnPDF">
+              <i class="fas fa-file-pdf me-1.5 text-danger"></i> Export PDF
+            </button>
+            <button class="btn btn-sm btn-light-custom px-3 py-2" id="btnCSV">
+              <i class="fas fa-file-csv me-1.5 text-success"></i> Export CSV
+            </button>
+            <button class="btn btn-sm btn-brand-orange px-3 py-2" id="btnRefresh">
+              <i class="fas fa-sync-alt me-1.5"></i> Refresh Data
+            </button>
+          </div>
+        </div>
+
+        <!-- Summary Cards (4 Cards Grid) -->
+        <div class="row g-4 mb-4">
+          <!-- Card 1: Today's Income -->
+          <div class="col-12 col-sm-6 col-lg-3 stat-card-wrapper">
+            <div class="stat-card-custom theme-green">
+              <div class="card-icon-container">
+                <i class="fas fa-money-bill-wave"></i>
+              </div>
+              <div class="stat-title">Today's Income</div>
+              <div class="stat-amount" id="statTodayIncome">LKR 0.00</div>
+              <i class="fas fa-money-bill-wave stat-bg-icon"></i>
+            </div>
+          </div>
+
+          <!-- Card 2: Monthly Income -->
+          <div class="col-12 col-sm-6 col-lg-3 stat-card-wrapper">
+            <div class="stat-card-custom theme-orange">
+              <div class="card-icon-container">
+                <i class="fas fa-calendar-alt"></i>
+              </div>
+              <div class="stat-title">Monthly Income</div>
+              <div class="stat-amount" id="statMonthlyIncome">LKR 0.00</div>
+              <i class="fas fa-calendar-alt stat-bg-icon"></i>
+            </div>
+          </div>
+
+          <!-- Card 3: Total Income -->
+          <div class="col-12 col-sm-6 col-lg-3 stat-card-wrapper">
+            <div class="stat-card-custom theme-blue">
+              <div class="card-icon-container">
+                <i class="fas fa-wallet"></i>
+              </div>
+              <div class="stat-title">Total Income</div>
+              <div class="stat-amount" id="statTotalIncome">LKR 0.00</div>
+              <i class="fas fa-wallet stat-bg-icon"></i>
+            </div>
+          </div>
+
+          <!-- Card 4: Completed Orders -->
+          <div class="col-12 col-sm-6 col-lg-3 stat-card-wrapper">
+            <div class="stat-card-custom theme-purple">
+              <div class="card-icon-container">
+                <i class="fas fa-check-circle"></i>
+              </div>
+              <div class="stat-title">Completed Orders</div>
+              <div class="stat-amount" id="statCompletedOrders">0</div>
+              <i class="fas fa-check-circle stat-bg-icon"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Filter Section -->
+        <div class="filter-card mb-4">
+          <h5 class="fw-bold text-slate-800 mb-3"><i class="fas fa-filter text-brand me-2"></i>Filter Transactions</h5>
+          <div class="row g-3">
+            <div class="col-12 col-sm-6 col-md-3">
+              <label class="form-label text-secondary small fw-semibold" for="filterFromDate">From Date</label>
+              <input type="date" class="form-control" id="filterFromDate">
+            </div>
+            <div class="col-12 col-sm-6 col-md-3">
+              <label class="form-label text-secondary small fw-semibold" for="filterToDate">To Date</label>
+              <input type="date" class="form-control" id="filterToDate">
+            </div>
+            <div class="col-12 col-sm-6 col-md-3">
+              <label class="form-label text-secondary small fw-semibold" for="filterPayment">Payment Method</label>
+              <select class="form-select" id="filterPayment">
+                <option value="">All Methods</option>
+                <option value="Cash">Cash</option>
+                <option value="Card">Card</option>
+                <option value="Online Payment">Online Payment</option>
+              </select>
+            </div>
+            <div class="col-12 col-sm-6 col-md-3">
+              <label class="form-label text-secondary small fw-semibold" for="filterStatus">Income Status</label>
+              <select class="form-select" id="filterStatus">
+                <option value="">All Statuses</option>
+                <option value="Completed">Completed</option>
+                <option value="Pending">Pending</option>
+                <option value="Cancelled">Cancelled</option>
+              </select>
+            </div>
+            <div class="col-12 col-md-9">
+              <label class="form-label text-secondary small fw-semibold" for="filterSearch">Search Query</label>
+              <div class="input-group">
+                <span class="input-group-text bg-light border-end-0"><i class="fas fa-search text-slate-500"></i></span>
+                <input type="text" class="form-control border-start-0" id="filterSearch"
+                  placeholder="Search by customer name, order ID, or income ID...">
+              </div>
+            </div>
+            <div class="col-12 col-md-3 d-flex align-items-end gap-2">
+              <button class="btn btn-brand-orange w-100 py-2.5" id="btnSearch">
+                <i class="fas fa-search me-1.5"></i> Apply Filters
+              </button>
+              <button class="btn btn-light-custom w-100 py-2.5" id="btnReset">
+                <i class="fas fa-undo me-1.5"></i> Reset
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Income Table Section -->
+        <div class="table-card mb-4">
+          <div class="d-flex justify-content-between align-items-center p-3 border-bottom border-slate-100">
+            <h5 class="fw-bold text-slate-800 mb-0"><i class="fas fa-receipt text-brand me-2"></i>Income Records</h5>
+          </div>
+
+          <div class="table-responsive">
+            <table class="fh-table text-nowrap">
+              <thead>
+                <tr>
+                  <th class="sortable-header" data-column="incomeId">Income ID <i class="fas fa-sort sort-icon"></i>
+                  </th>
+                  <th class="sortable-header" data-column="orderId">Order ID <i class="fas fa-sort sort-icon"></i></th>
+                  <th class="sortable-header" data-column="customerName">Customer Name <i
+                      class="fas fa-sort sort-icon"></i></th>
+                  <th class="sortable-header" data-column="date">Order Date <i class="fas fa-sort sort-icon"></i></th>
+                  <th>Payment Method</th>
+                  <th class="sortable-header" data-column="amount">Total Amount <i class="fas fa-sort sort-icon"></i>
+                  </th>
+                  <th>Order Status</th>
+                  <th>Income Status</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="incomeTableBody">
+                <!-- Javascript will populate rows dynamically here -->
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Table Footer Navigation -->
+          <div
+            class="d-flex flex-column flex-sm-row justify-content-between align-items-center p-3 border-top border-slate-100 gap-3">
+            <span class="text-secondary small font-medium" id="showingEntriesText">Showing 0 to 0 of 0 entries</span>
+            <nav aria-label="Table pagination">
+              <ul class="pagination pagination-custom mb-0" id="paginationContainer">
+                <!-- Javascript pagination buttons dynamically created -->
+              </ul>
+            </nav>
+          </div>
+        </div>
+
+        <!-- Charts Section (2 Cards Grid) -->
+        <div class="row g-4 mb-4">
+          <!-- Card 1: Monthly Income Bar Chart -->
+          <div class="col-12 col-lg-7">
+            <div class="chart-card">
+              <h5 class="fw-bold text-slate-800 mb-3"><i class="fas fa-chart-bar text-brand me-2"></i>Monthly Income
+                Chart</h5>
+              <div class="chart-container">
+                <canvas id="monthlyIncomeChart"></canvas>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2: Payment Method Distribution Pie Chart -->
+          <div class="col-12 col-lg-5">
+            <div class="chart-card">
+              <h5 class="fw-bold text-slate-800 mb-3"><i class="fas fa-chart-pie text-brand me-2"></i>Payment Method
+                Distribution</h5>
+              <div class="chart-container">
+                <canvas id="paymentMethodChart"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div> <!-- Close main-container -->
+
+      <!-- Footer -->
+      <footer class="bg-white border-top border-slate-200 py-3 text-center mt-auto">
+        <span class="text-secondary small fw-medium">© 2026 FlavorHub Admin Dashboard</span>
+      </footer>
+
+    </div> <!-- Close content -->
+  </div> <!-- Close app-wrapper -->
+
+  <!-- ─── Details Modal ─── -->
+  <div class="modal fade" id="detailsModal" tabindex="-1" aria-labelledby="detailsModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content modal-content-custom">
+        <div class="modal-header modal-header-custom d-flex justify-content-between align-items-center">
+          <div>
+            <h5 class="modal-title fw-bold" id="detailsModalLabel">Transaction Details</h5>
+            <span class="small opacity-75">ID: <span id="modalIncomeId">INC-0000</span></span>
+          </div>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body modal-body-custom">
+
+          <!-- Order Metadata Info -->
+          <div class="row g-2 mb-4">
+            <div class="col-6">
+              <span class="text-secondary small d-block">Order ID</span>
+              <span class="fw-semibold text-slate-900" id="modalOrderId">ORD-0000</span>
+            </div>
+            <div class="col-6 text-end">
+              <span class="text-secondary small d-block">Order Date</span>
+              <span class="fw-semibold text-slate-900" id="modalDate">Jan 01, 2026</span>
+            </div>
+            <div class="col-6 mt-3">
+              <span class="text-secondary small d-block">Customer Name</span>
+              <span class="fw-semibold text-slate-900" id="modalCustomer">Customer Name</span>
+            </div>
+            <div class="col-6 mt-3 text-end">
+              <span class="text-secondary small d-block">Payment Method</span>
+              <div id="modalPayment">Cash</div>
+            </div>
+            <div class="col-12 mt-3">
+              <span class="text-secondary small d-block">Income Status</span>
+              <div id="modalStatus">Completed</div>
+            </div>
+          </div>
+
+          <!-- Receipt Breakdown Itemized -->
+          <h6 class="fw-bold text-slate-800 mb-2"><i class="fas fa-utensils text-brand me-1.5"></i>Order Details</h6>
+          <div class="receipt-wrapper">
+            <div class="receipt-header d-flex justify-content-between fw-semibold text-slate-700 small">
+              <span>Item Description</span>
+              <span>Total Price</span>
+            </div>
+
+            <div id="modalReceiptItems">
+              <!-- JS item rows will go here -->
+            </div>
+
+            <div class="receipt-total">
+              <span>Subtotal</span>
+              <span id="modalSubtotal">LKR 0.00</span>
+            </div>
+            <div class="receipt-item text-secondary mt-1">
+              <span>Tax (8%)</span>
+              <span id="modalTax">LKR 0.00</span>
+            </div>
+            <div class="receipt-item text-secondary">
+              <span>Service Charge (5%)</span>
+              <span id="modalServiceCharge">LKR 0.00</span>
+            </div>
+            <div class="receipt-total border-top-0 pt-0 fs-5 text-brand fw-extrabold mt-1">
+              <span>Total Bill</span>
+              <span id="modalTotal">LKR 0.00</span>
+            </div>
+          </div>
+
+        </div>
+        <div class="modal-footer modal-footer-custom">
+          <button type="button" class="btn btn-light-custom px-4 py-2" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-brand-orange px-4 py-2" onclick="window.print()"><i
+              class="fas fa-print me-1.5"></i>Print Invoice</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CDNs: Bootstrap Bundle JS, Chart.js, Sidebar Navigation Script, Custom JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <script>
+    // Sidebar responsive collapse listener
+    document.addEventListener("DOMContentLoaded", function () {
+      const sidebar = document.getElementById("sidebar");
+      const sidebarCollapse = document.getElementById("sidebarCollapse");
+
+      if (sidebarCollapse && sidebar) {
+        sidebarCollapse.addEventListener("click", function () {
+          sidebar.classList.toggle("collapsed");
+          sidebar.classList.toggle("active");
+        });
+      }
+    });
+  </script>
+
+  <script src="income.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FlavorHub — Our Food Menu</title>
+
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/menu.css">
+</head>
+
+<body>
+
+  <!-- Page Loader Overlay -->
+  <div class="global-page-loader">
+    <div class="loader-spinner"></div>
+  </div>
+
+  <!-- Sticky Navigation Header -->
+  <header class="header-nav">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <i class="bi bi-egg-fried"></i> FlavorHub
+      </a>
+
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="menu.html" class="active">Menu</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="login.html" class="btn-nav btn-login nav-login-btn">Login</a>
+        <a href="register.html" class="btn-nav btn-register nav-register-btn">Register</a>
+        <a href="cart.html" class="cart-icon-container" title="View Shopping Cart">
+          <i class="fas fa-shopping-basket"></i>
+          <span class="cart-icon-badge" style="display: none;">0</span>
+        </a>
+
+        <div class="menu-burger">
+          <i class="bi bi-list"></i>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ─── Page Header ─── -->
+  <section class="menu-page-header">
+    <div class="menu-header-container">
+      <h1>Our Culinary Menu</h1>
+      <p>Explore our wide selection of freshly prepared dishes, burgers, pizzas, and desserts</p>
+    </div>
+  </section>
+
+  <!-- ─── Controls (Search & Filters) ─── -->
+  <section class="menu-controls-container">
+
+    <!-- Search Bar -->
+    <div class="menu-search-bar-wrap">
+      <form class="menu-search-input-group" id="menuSearchForm">
+        <span><i class="fas fa-search"></i></span>
+        <input type="text" id="menuSearchInput" placeholder="What are you craving today? e.g., Pepperoni Pizza">
+        <button type="submit">Search</button>
+      </form>
+    </div>
+
+    <!-- Category Filter Tags -->
+    <div class="menu-category-filters">
+      <button class="category-tag-btn active" data-category="">
+        <i class="fas fa-th-list"></i> All Menu
+      </button>
+      <button class="category-tag-btn" data-category="pizza">
+        <i class="fas fa-pizza-slice"></i> Pizza
+      </button>
+      <button class="category-tag-btn" data-category="burger">
+        <i class="fas fa-hamburger"></i> Burgers
+      </button>
+      <button class="category-tag-btn" data-category="rice">
+        <i class="fas fa-bowl-rice"></i> Rice
+      </button>
+      <button class="category-tag-btn" data-category="drinks">
+        <i class="fas fa-glass-whiskey"></i> Drinks
+      </button>
+      <button class="category-tag-btn" data-category="desserts">
+        <i class="fas fa-ice-cream"></i> Desserts
+      </button>
+    </div>
+  </section>
+
+  <!-- ─── Menu Catalog Grid ─── -->
+  <section class="menu-catalog-section">
+    <div class="menu-foods-grid" id="menuGridContainer">
+      <!-- Loaded dynamically via menu.js -->
+    </div>
+  </section>
+
+  <!-- ─── Footer Section ─── -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-brand">
+        <h3><i class="bi bi-egg-fried"></i> FlavorHub</h3>
+        <p>Order fresh, delicious culinary recipes directly to your doorstep. Satisfying your food cravings with ease.
+        </p>
+        <div class="footer-socials">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="menu.html">Our Menu</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links">
+        <h4>Legal Links</h4>
+        <ul>
+          <li><a href="#">Terms of Use</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Refund Policy</a></li>
+          <li><a href="#">Delivery Info</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-contact">
+        <h4>Contact Us</h4>
+        <ul>
+          <li><i class="fas fa-map-marker-alt"></i> 123 Kandy Road,nawalapitiya,sri lanka</li>
+          <li><i class="fas fa-phone-alt"></i> +94 70 234 5678</li>
+          <li><i class="fas fa-envelope"></i> Floverhub@gmail.com</li>
+          <li><i class="fas fa-clock"></i> 10:00 AM - 10:00 PM</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 FlavorHub Admin Dashboard. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <div class="back-to-top">
+    <i class="fas fa-chevron-up"></i>
+  </div>
+
+  <!-- JavaScript scripts -->
+  <script src="js/api.js?v=999"></script>
+  <script src="js/global.js?v=999"></script>
+  <script src="js/menu.js?v=999"></script>
+</body>
+
+</html>

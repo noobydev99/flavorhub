@@ -1,0 +1,165 @@
+/* ─── FlavorHub Menu Page Styles ───────────────────────────────── */
+
+.menu-page-header {
+  padding: 3rem 1.5rem;
+  background-color: var(--light-gray);
+  text-align: center;
+}
+
+.menu-header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.menu-header-container h1 {
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: var(--dark-gray);
+  margin-bottom: 0.5rem;
+}
+
+.menu-header-container p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+/* ─── Search & Filters Layout ──────────────────────────────── */
+.menu-controls-container {
+  max-width: 1200px;
+  margin: 2.5rem auto 3rem;
+  padding: 0 1.5rem;
+}
+
+.menu-search-bar-wrap {
+  max-width: 600px;
+  margin: 0 auto 2.5rem;
+}
+
+.menu-search-input-group {
+  display: flex;
+  background-color: var(--white);
+  border: 1px solid var(--slate-200);
+  border-radius: var(--radius-btn);
+  box-shadow: var(--shadow-soft);
+  padding: 0.4rem;
+}
+
+.menu-search-input-group span {
+  display: flex;
+  align-items: center;
+  padding: 0 1rem;
+  color: var(--text-muted);
+  font-size: 1.2rem;
+}
+
+.menu-search-input-group input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-family: inherit;
+  font-size: 0.95rem;
+  color: var(--dark-gray);
+}
+
+.menu-search-input-group button {
+  background-color: var(--primary-orange);
+  color: var(--white);
+  border: none;
+  border-radius: var(--radius-btn);
+  padding: 0.75rem 2rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.menu-search-input-group button:hover {
+  background-color: var(--primary-orange-hover);
+}
+
+/* Category Filter Tags */
+.menu-category-filters {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.category-tag-btn {
+  background-color: var(--light-gray);
+  color: var(--dark-gray);
+  border: 1px solid transparent;
+  padding: 0.6rem 1.5rem;
+  border-radius: var(--radius-btn);
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.category-tag-btn:hover {
+  background-color: var(--white);
+  border-color: var(--primary-orange);
+  color: var(--primary-orange);
+}
+
+.category-tag-btn.active {
+  background-color: var(--primary-orange);
+  color: var(--white);
+  box-shadow: 0 4px 15px rgba(255, 107, 0, 0.2);
+}
+
+/* ─── Grid Catalog ────────────────────────────────────────── */
+.menu-catalog-section {
+  max-width: 1200px;
+  margin: 0 auto 5rem;
+  padding: 0 1.5rem;
+}
+
+.menu-foods-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 576px) {
+  .menu-foods-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 992px) {
+  .menu-foods-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1200px) {
+  .menu-foods-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.no-results-box {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 4rem 2rem;
+  color: var(--text-muted);
+}
+
+.no-results-box i {
+  font-size: 3rem;
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+  opacity: 0.5;
+}
+
+.no-results-box h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--dark-gray);
+}

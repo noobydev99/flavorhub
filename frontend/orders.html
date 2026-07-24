@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlavorHub — My Orders</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+
+<body>
+    <div class="global-page-loader">
+        <div class="loader-spinner"></div>
+    </div>
+
+    <header class="header-nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo"><i class="bi bi-egg-fried"></i> FlavorHub</a>
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="menu.html">Menu</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+            <div class="nav-actions">
+                <a href="login.html" class="btn-nav btn-login nav-login-btn">Login</a>
+                <a href="register.html" class="btn-nav btn-register nav-register-btn">Register</a>
+                <a href="cart.html" class="cart-icon-container"><i class="fas fa-shopping-basket"></i><span
+                        class="cart-icon-badge" style="display:none;">0</span></a>
+                <div class="menu-burger"><i class="bi bi-list"></i></div>
+            </div>
+        </div>
+    </header>
+
+    <div class="dashboard-page-wrap">
+        <!-- ─── Left Sidebar ─── -->
+        <aside class="dashboard-sidebar">
+            <div class="dashboard-profile-pill">
+                <div class="dashboard-avatar-circle" id="dashboardAvatar">A</div>
+                <p class="dashboard-user-name" id="dashboardUserName">Loading...</p>
+                <p class="dashboard-user-email" id="dashboardUserEmail">email@example.com</p>
+            </div>
+            <nav class="dashboard-nav-menu">
+                <a href="dashboard.html" class="dashboard-nav-item" style="text-decoration:none;"><i
+                        class="fas fa-home"></i> Overview</a>
+                <a href="orders.html" class="dashboard-nav-item active" style="text-decoration:none;"><i
+                        class="fas fa-history"></i> My Orders</a>
+                <a href="addresses.html" class="dashboard-nav-item" style="text-decoration:none;"><i
+                        class="fas fa-map-marker-alt"></i> Saved Addresses</a>
+                <a href="settings.html" class="dashboard-nav-item" style="text-decoration:none;"><i
+                        class="fas fa-cog"></i> Account Settings</a>
+            </nav>
+            <div class="dashboard-logout-btn">
+                <div class="dashboard-nav-item" onclick="window.FlavorHubAPI.logout()" style="cursor:pointer;"><i
+                        class="fas fa-sign-out-alt"></i> Logout</div>
+            </div>
+        </aside>
+
+        <!-- ─── Right Content Panels ─── -->
+        <div class="dashboard-content-area">
+            <!-- Orders Tab -->
+            <div class="dashboard-tab-panel active" id="tab-orders">
+                <div class="dashboard-card">
+                    <h3 class="dashboard-card-title"><i class="fas fa-history"></i> My Orders</h3>
+                    <div class="order-history-list" id="orderHistoryList"><!-- Loaded dynamically --></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h3><i class="bi bi-egg-fried"></i> FlavorHub</h3>
+                <p>Order fresh, delicious food delivered to your doorstep.</p>
+                <div class="footer-socials">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Account</h4>
+                <ul>
+                    <li><a href="dashboard.html">My Dashboard</a></li>
+                    <li><a href="orders.html">My Orders</a></li>
+                    <li><a href="settings.html">Settings</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>Contact Us</h4>
+                <ul>
+                    <li><i class="fas fa-map-marker-alt"></i>123 Kandy Road,nawalapitiya,sri lanka</li>
+                    <li><i class="fas fa-phone-alt"></i> 077 1234567</li>
+                    <li><i class="fas fa-envelope"></i> Floverhub@gmail.com</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 FlavorHub. All Rights Reserved.</p>
+        </div>
+    </footer>
+    <div class="back-to-top"><i class="fas fa-chevron-up"></i></div>
+
+    <script src="js/api.js?v=999"></script>
+    <script src="js/global.js?v=999"></script>
+    <script src="js/dashboard.js?v=999"></script>
+</body>
+
+</html>

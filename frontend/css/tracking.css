@@ -1,0 +1,215 @@
+/* ─── FlavorHub Order Tracking Page Styles ───────────────────── */
+
+.tracking-page-section {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem 6rem;
+}
+
+.tracking-order-info-card {
+  background: linear-gradient(135deg, var(--dark-gray), #444);
+  border-radius: var(--radius-card);
+  padding: 2rem;
+  color: var(--white);
+  margin-bottom: 2.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+}
+
+.tracking-order-id {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.35rem;
+}
+
+.tracking-est-time {
+  font-size: 0.85rem;
+  opacity: 0.7;
+}
+
+.tracking-total-badge {
+  background-color: var(--primary-orange);
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-btn);
+  font-size: 1.35rem;
+  font-weight: 800;
+}
+
+/* ─── Progress Bar ────────────────────────────────────────── */
+.tracking-progress-wrap {
+  margin-bottom: 2.5rem;
+}
+
+.progress-label-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+.progress-label-row span {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.progress-label-row span.active-step {
+  color: var(--primary-orange);
+}
+
+.tracking-progress-bar-bg {
+  width: 100%;
+  height: 10px;
+  background-color: var(--light-gray);
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.tracking-progress-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary-orange), #ff8c3a);
+  border-radius: 20px;
+  transition: width 1s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* ─── Timeline Steps ──────────────────────────────────────── */
+.tracking-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  background: var(--white);
+  border: 1px solid var(--light-gray);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-soft);
+  overflow: hidden;
+}
+
+.timeline-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  padding: 1.75rem 2rem;
+  border-bottom: 1px solid var(--light-gray);
+  transition: var(--transition);
+  position: relative;
+}
+
+.timeline-step:last-child {
+  border-bottom: none;
+}
+
+.timeline-step.step-done {
+  background-color: rgba(16, 185, 129, 0.03);
+}
+
+.timeline-step.step-active {
+  background-color: rgba(255, 107, 0, 0.04);
+}
+
+.timeline-icon-dot {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+  border: 2px solid var(--light-gray);
+  background: var(--light-gray);
+  color: var(--text-muted);
+  transition: var(--transition);
+}
+
+.timeline-step.step-done .timeline-icon-dot {
+  background: var(--success-green);
+  border-color: var(--success-green);
+  color: var(--white);
+}
+
+.timeline-step.step-active .timeline-icon-dot {
+  background: var(--primary-orange);
+  border-color: var(--primary-orange);
+  color: var(--white);
+  animation: pulse-step 1.5s infinite;
+}
+
+@keyframes pulse-step {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255, 107, 0, 0.3); }
+  50% { box-shadow: 0 0 0 10px rgba(255, 107, 0, 0); }
+}
+
+.timeline-info-col {
+  flex: 1;
+}
+
+.timeline-step-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+  color: var(--dark-gray);
+}
+
+.timeline-step.step-pending .timeline-step-title {
+  color: var(--text-muted);
+}
+
+.timeline-step-desc {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.timeline-step-time {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--success-green);
+  margin-left: auto;
+  white-space: nowrap;
+}
+
+.timeline-step.step-active .timeline-step-time {
+  color: var(--primary-orange);
+}
+
+.timeline-step.step-pending .timeline-step-time {
+  color: var(--text-muted);
+}
+
+/* ─── Order Items Summary ─────────────────────────────────── */
+.tracking-items-card {
+  background: var(--white);
+  border: 1px solid var(--light-gray);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-soft);
+  padding: 2rem;
+  margin-top: 2rem;
+}
+
+.tracking-items-card h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 1.25rem;
+  color: var(--dark-gray);
+}
+
+.tracking-item-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.875rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--light-gray);
+  color: var(--dark-gray-light);
+}
+
+.tracking-item-row:last-child {
+  border-bottom: none;
+}
+
+.tracking-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}

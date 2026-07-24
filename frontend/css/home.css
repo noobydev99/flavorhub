@@ -1,0 +1,408 @@
+/* ─── FlavorHub Home Page Styles ───────────────────────────────── */
+
+/* ─── Hero Section ─────────────────────────────────────────── */
+.hero-section {
+  padding: 4rem 1.5rem;
+  background-color: var(--white);
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+}
+
+.hero-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+@media (min-width: 992px) {
+  .hero-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.hero-content h1 {
+  font-size: 2.75rem;
+  font-weight: 800;
+  line-height: 1.2;
+  color: var(--dark-gray);
+  margin-bottom: 1.5rem;
+}
+
+.hero-content h1 span {
+  color: var(--primary-orange);
+}
+
+.hero-content p {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  margin-bottom: 2rem;
+  max-width: 500px;
+}
+
+.hero-image-wrap {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-image-wrap img {
+  width: 100%;
+  max-width: 480px;
+  border-radius: 50%;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+  animation: floatImage 6s ease-in-out infinite;
+}
+
+@keyframes floatImage {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+/* Floating Badge overlays on Hero */
+.floating-badge {
+  position: absolute;
+  background-color: var(--white);
+  padding: 0.8rem 1.2rem;
+  border-radius: var(--radius-card);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  z-index: 10;
+}
+
+.badge-1 {
+  top: 10%;
+  left: -5%;
+}
+
+.badge-2 {
+  bottom: 15%;
+  right: -5%;
+}
+
+.floating-badge i {
+  color: var(--primary-orange);
+  font-size: 1.5rem;
+  background-color: var(--primary-orange-light);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.floating-badge span {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--dark-gray);
+}
+
+/* ─── Featured Categories ──────────────────────────────────── */
+.categories-section {
+  padding: 5rem 1.5rem;
+  background-color: var(--light-gray);
+}
+
+.section-header-wrap {
+  max-width: 1200px;
+  margin: 0 auto 3rem;
+  text-align: center;
+}
+
+.section-header-wrap h2 {
+  font-size: 2.25rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+  color: var(--dark-gray);
+}
+
+.section-header-wrap p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.categories-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .categories-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+.category-item-card {
+  background-color: var(--white);
+  padding: 2rem 1rem;
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-soft);
+  text-align: center;
+  transition: var(--transition);
+  border: 1px solid transparent;
+}
+
+.category-item-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-hover);
+  border-color: rgba(255,107,0,0.15);
+}
+
+.category-item-card .cat-icon {
+  width: 70px;
+  height: 70px;
+  background-color: var(--primary-orange-light);
+  color: var(--primary-orange);
+  font-size: 2rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.25rem;
+  transition: var(--transition);
+}
+
+.category-item-card:hover .cat-icon {
+  background-color: var(--primary-orange);
+  color: var(--white);
+}
+
+.category-item-card h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+/* ─── Popular Dishes ───────────────────────────────────────── */
+.popular-section {
+  padding: 5rem 1.5rem;
+  background-color: var(--white);
+}
+
+.popular-grid-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 576px) {
+  .popular-grid-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 992px) {
+  .popular-grid-container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.view-menu-btn-wrap {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+/* ─── Why Choose Us ────────────────────────────────────────── */
+.features-section {
+  padding: 5rem 1.5rem;
+  background-color: var(--light-gray);
+}
+
+.features-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+}
+
+@media (min-width: 768px) {
+  .features-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.feature-item-card {
+  background-color: var(--white);
+  padding: 2.5rem 1.75rem;
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-soft);
+  text-align: center;
+  transition: var(--transition);
+}
+
+.feature-item-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.06);
+}
+
+.feature-item-card i {
+  font-size: 2.5rem;
+  color: var(--primary-orange);
+  margin-bottom: 1.5rem;
+}
+
+.feature-item-card h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--dark-gray);
+}
+
+.feature-item-card p {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+/* ─── Testimonial / Review Section ────────────────────────── */
+.reviews-section {
+  padding: 5rem 1.5rem;
+  background-color: var(--white);
+}
+
+.reviews-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .reviews-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.review-item-card {
+  background-color: var(--white);
+  border: 1px solid var(--light-gray);
+  padding: 2rem;
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-soft);
+  position: relative;
+  transition: var(--transition);
+}
+
+.review-item-card:hover {
+  box-shadow: 0 12px 30px rgba(0,0,0,0.06);
+  border-color: rgba(255,107,0,0.1);
+}
+
+.quote-icon {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 2rem;
+  color: rgba(255, 107, 0, 0.08);
+}
+
+.review-stars {
+  color: #FFC107;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.review-text {
+  font-size: 0.9rem;
+  color: var(--dark-gray-light);
+  margin-bottom: 1.5rem;
+  font-style: italic;
+}
+
+.reviewer-meta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.reviewer-avatar {
+  width: 44px;
+  height: 44px;
+  background-color: var(--primary-orange-light);
+  color: var(--primary-orange);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+}
+
+.reviewer-details h4 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--dark-gray);
+}
+
+.reviewer-details span {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* ─── Newsletter Subscription ──────────────────────────────── */
+.newsletter-section {
+  padding: 5rem 1.5rem;
+  background: linear-gradient(135deg, var(--primary-orange) 0%, #ff8c3a 100%);
+  color: var(--white);
+  text-align: center;
+}
+
+.newsletter-container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.newsletter-container h2 {
+  font-size: 2.25rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+.newsletter-container p {
+  font-size: 1rem;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+}
+
+.newsletter-box {
+  background-color: var(--white);
+  border-radius: var(--radius-btn);
+  padding: 0.4rem;
+  display: flex;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.newsletter-box input {
+  flex: 1;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  outline: none;
+  font-family: inherit;
+  font-size: 0.95rem;
+  border-radius: var(--radius-btn);
+}
+
+.newsletter-box button {
+  background-color: var(--dark-gray);
+  color: var(--white);
+  border: none;
+  padding: 0.75rem 2rem;
+  border-radius: var(--radius-btn);
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.newsletter-box button:hover {
+  background-color: var(--dark-gray-light);
+}
